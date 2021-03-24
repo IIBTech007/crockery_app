@@ -2030,26 +2030,17 @@ class NetworksOperation{
    return null;
  }
  static Future<List<Store>> getAllStoresByRestaurantId(BuildContext context,dynamic storeData)async{
-
+print("uytrtyu");
    try{
      var body=jsonEncode(
          storeData
      );
-     Map<String,String> headers = {'Content-Type':'application/json','Authorization':'Bearer '};
-     var response=await http.post(Utils.baseUrl()+"Store/GetAll",headers:headers,body: body );
+     var response=await http.post(Utils.baseUrl()+"Store/GetAll",body: body );
+     print(response.statusCode);
+
      var data= jsonDecode(response.body);
      print(data);
      if(response.statusCode==200 && data!=null){
-       //return data;
-       // List<Store> list=List();
-       // list.clear();
-       // for(int i=0;i<data.length;i++){
-       //   list.add(Store(name: data[i]['name'],id: data[i]['id'],image: data[i]['image'],
-       //       address:  data[i]['address'],isVisible: data[i]['isVisible'],
-       //       city:  data[i]['city'],restaurantId: data[i]['restaurantId'],));
-       // }
-       // print(data.toString());
-       // return list;
        return Store.listStoreFromJson(response.body);
 
      }
@@ -2059,7 +2050,7 @@ class NetworksOperation{
      }
    }catch(e){
      print(e);
-     Utils.showError(context, "Error Found:");
+     Utils.showError(context, "Error Found:$e");
    }
    return null;
  }

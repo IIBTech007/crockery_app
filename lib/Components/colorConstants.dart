@@ -12,9 +12,11 @@ import 'package:flutter/material.dart';
 //
 const color1 = Color(0xFF41444b);
 const color2 = Color(0xFF52575d);
-const color3 = Color(0xFFc7a504);
-const color4 = Color(0xFFf6f4e6);
+const color3 = Color(0xFFF3D657);
+const color4 = Color(0xFF1C1C1C);
 const color5 = Color(0xFFdbc459);
+const whiteTextColor = Color(0xFFFFFFFF);
+
 
 // const color1 = Color(0xFF222831);
 // const color2 = Color(0xFF393e46);

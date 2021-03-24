@@ -1,9 +1,9 @@
 import 'dart:ui';
-import 'package:capsianfood/Utils/Utils.dart';
-import 'package:capsianfood/components/constants.dart';
-import 'package:capsianfood/model/Sizes.dart';
-import 'package:capsianfood/networks/network_operations.dart';
-import 'package:capsianfood/screens/AdminPannel/Menu/AddScreens/Sizes/updateSize.dart';
+
+import 'package:crockery_app/Components/colorConstants.dart';
+import 'package:crockery_app/Models/Sizes.dart';
+import 'package:crockery_app/Networks/NetworkOperations.dart';
+import 'package:crockery_app/Utils/Utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -37,7 +37,7 @@ class _categoryListPageState extends State<SizesListPage>{
         this.token = value.getString("token");
       });
     });
-    networksOperation.getSizes(context,widget.storeId).then((value){
+    NetworksOperation.getSizes(context,widget.storeId).then((value){
       //pd.hide();
       setState(() {
         sizes = value;
@@ -55,12 +55,12 @@ class _categoryListPageState extends State<SizesListPage>{
         appBar: AppBar(
           centerTitle: true,
           iconTheme: IconThemeData(
-              color: yellowColor
+              color: color3
           ),
-          backgroundColor: BackgroundColor ,
+          backgroundColor: color4 ,
           actions: [
             IconButton(
-              icon: Icon(Icons.add, color: PrimaryColor,size:25),
+              icon: Icon(Icons.add, color: color2,size:25),
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context)=> add_Sizes(widget.storeId)));
               },
@@ -69,7 +69,7 @@ class _categoryListPageState extends State<SizesListPage>{
 
           title: Text("Sizes",
             style: TextStyle(
-                color: yellowColor,
+                color: color3,
                 fontSize: 22,
                 fontWeight: FontWeight.bold
             ),
@@ -80,7 +80,7 @@ class _categoryListPageState extends State<SizesListPage>{
           onRefresh: (){
             return Utils.check_connectivity().then((result){
               if(result){
-                networksOperation.getSizes(context,widget.storeId).then((value){
+                NetworksOperation.getSizes(context,widget.storeId).then((value){
                   //pd.hide();
                   setState(() {
                     sizes = value;
@@ -114,8 +114,8 @@ class _categoryListPageState extends State<SizesListPage>{
                         //padding: EdgeInsets.only(top: 8),
                         width: MediaQuery.of(context).size.width * 0.98,
                         decoration: BoxDecoration(
-                          color: BackgroundColor,
-                          border: Border.all(color: yellowColor, width: 2),
+                          color: color4,
+                          border: Border.all(color: color3, width: 2),
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(20),
                             bottomRight: Radius.circular(20),
@@ -131,13 +131,13 @@ class _categoryListPageState extends State<SizesListPage>{
                               caption: 'Update',
                               onTap: () async {
                                 //print(barn_lists[index]);
-                                Navigator.push(context,MaterialPageRoute(builder: (context)=>update_Sizes(sizes[index])));
+                              //  Navigator.push(context,MaterialPageRoute(builder: (context)=>update_Sizes(sizes[index])));
                               },
                             ),
                           ],
                           child: ListTile(
 
-                            title: Text(sizes[index].name!=null?sizes[index].name:"",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: yellowColor),),
+                            title: Text(sizes[index].name!=null?sizes[index].name:"",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: color3),),
                             onTap: () {
                             },
                           ),

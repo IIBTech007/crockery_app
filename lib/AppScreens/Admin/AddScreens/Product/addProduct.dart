@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
 import 'dart:ui';
-
 import 'package:crockery_app/Components/colorConstants.dart';
 import 'package:crockery_app/Models/ProductSizes.dart';
 import 'package:crockery_app/Models/Sizes.dart';
@@ -9,10 +8,6 @@ import 'package:crockery_app/Networks/NetworkOperations.dart';
 import 'package:crockery_app/Utils/Utils.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'AddProductDetails.dart';
-
-
-
 
 
 class addProduct extends StatefulWidget {

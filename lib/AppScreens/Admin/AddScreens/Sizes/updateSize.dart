@@ -1,8 +1,8 @@
 import 'dart:ui';
-import 'package:capsianfood/Utils/Utils.dart';
-import 'package:capsianfood/components/constants.dart';
-import 'package:capsianfood/model/Sizes.dart';
-import 'package:capsianfood/networks/network_operations.dart';
+import 'package:crockery_app/Components/colorConstants.dart';
+import 'package:crockery_app/Models/Sizes.dart';
+import 'package:crockery_app/Networks/NetworkOperations.dart';
+import 'package:crockery_app/Utils/Utils.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -44,14 +44,14 @@ class _add_SizesState extends State<update_Sizes> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: BackgroundColor,
+        backgroundColor: color4,
         centerTitle: true,
         iconTheme: IconThemeData(
-            color: yellowColor
+            color: color3
         ),
         title: Text("Update Sizes",
           style: TextStyle(
-              color: yellowColor,
+              color: color3,
               fontSize: 22,
               fontWeight: FontWeight.bold
           ),
@@ -75,17 +75,17 @@ class _add_SizesState extends State<update_Sizes> {
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
                     controller: name,
-                    style: TextStyle(color: yellowColor,fontWeight: FontWeight.bold),
+                    style: TextStyle(color: color3,fontWeight: FontWeight.bold),
                     obscureText: false,
                     decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: yellowColor, width: 1.0)
+                          borderSide: BorderSide(color: color3, width: 1.0)
                       ),
                       enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: PrimaryColor, width: 1.0)
+                          borderSide: BorderSide(color: color2, width: 1.0)
                       ),
                       labelText: "Size Name",
-                      labelStyle: TextStyle(color: yellowColor, fontWeight: FontWeight.bold),
+                      labelStyle: TextStyle(color: color3, fontWeight: FontWeight.bold),
 
                     ),
                     textInputAction: TextInputAction.next,
@@ -105,7 +105,7 @@ class _add_SizesState extends State<update_Sizes> {
                     else{
                       Utils.check_connectivity().then((result){
                         if(result){
-                          networksOperation.updateSizes(context, token,widget.sizeDetails.id, name.text).then((value){
+                          NetworksOperation.updateSizes(context, token,widget.sizeDetails.id, name.text).then((value){
                             if(value){
                              Utils.showSuccess(context, "Update Successfully");
                             }
@@ -121,13 +121,13 @@ class _add_SizesState extends State<update_Sizes> {
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(10)) ,
-                        color: yellowColor,
+                        color: color3,
                       ),
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height  * 0.06,
 
                       child: Center(
-                        child: Text("UPDATE",style: TextStyle(color: BackgroundColor,fontSize: 20,fontWeight: FontWeight.bold),),
+                        child: Text("UPDATE",style: TextStyle(color: color4,fontSize: 20,fontWeight: FontWeight.bold),),
                       ),
                     ),
                   ),

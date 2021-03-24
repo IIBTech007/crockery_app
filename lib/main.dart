@@ -6,6 +6,7 @@ import 'package:crockery_app/AppScreens/WelcomeScreens/SignUpScreen.dart';
 
 import 'package:flutter/material.dart';
 
+import 'AppScreens/Admin/Store/NewStores.dart';
 import 'AppScreens/Client/Home/ClientHomeScreen.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: ClientHomeScreen(),
+      home: NewStores(),
     );
   }
 }

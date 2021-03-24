@@ -8,12 +8,12 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share/share.dart';
-import 'package:translator/translator.dart';
+// import 'package:translator/translator.dart';
 
 class Utils{
    static String baseUrl(){
-     return "http://192.236.147.77:9000/api/";
-     //return "http://192.236.147.77:8083/api/";
+    // return "http://192.236.147.77:9000/api/";
+     return "http://hiuhcs.com/api/";
    }
    static bool validateStructure(String value){
      RegExp regExp = new RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{6,}$');
@@ -80,11 +80,11 @@ class Utils{
      return utf8.decode(base64Url.decode(output));
    }
 
-   static Future<String> translate(String input)async{
-     final translator=GoogleTranslator();
-     var trans=await translator.translate(input,to:"en");
-    return trans.text;
-   }
+   // static Future<String> translate(String input)async{
+   //   final translator=GoogleTranslator();
+   //   var trans=await translator.translate(input,to:"en");
+   //  return trans.text;
+   // }
    static Future<File> getImage() async {
      var image = await ImagePicker.pickImage(source: ImageSource.gallery);
      return image;
